@@ -32,12 +32,12 @@ export const ShowStudents = () => {
 
     sortOrder == "asc"
       ? setAllData(
-          allData.sort((a, b) => {
+          [...allData].sort((a, b) => {
             return a[sortKey] - b[sortKey];
           })
         )
       : setAllData(
-          allData.sort((a, b) => {
+          [...allData].sort((a, b) => {
             return b[sortKey] - a[sortKey];
           })
       );
