@@ -30,29 +30,19 @@ export const ShowStudents = () => {
     console.log("sortKey:", sortKey);
     console.log("sortOrder:", sortOrder);
 
-    if(sortKey == "first_name" || sortKey == "gender"){
-      
-      sortOrder == "asc" ? setAllData(
-                      [...allData].sort((a,b)=>{
-                          if(a[sortKey] > b [sortKey]){
-                            return 1;
-                          }else if(a[sortKey] < b[sortKey]){
-                            return -1;
-                          }else{
-                            return 0;
-                          }
-                      })
-      ) : setAllData(
-                      [...allData].sort((a,b)=>{
-                          if(a[sortKey] > b [sortKey]){
-                            return -1;
-                          }else if(a[sortKey] < b[sortKey]){
-                            return 1;
-                          }else{
-                            return 0;
-                          }
-                     })
-        
+    if(sortKey == "first_name" || sortKey == "gender"){     
+     
+        sortOrder == "asc"
+          ? setAllData(
+              [...allData].sort((a, b) => {
+                 a[sortKey] < b[sortKey] ? return 1 : a[sortKey] > b[sortKey] ? return -1 : return 0
+              })
+            )
+          : setAllData(
+              [...allData].sort((a, b) => {
+               a[sortKey] > b[sortKey] ? return 1 : a[sortKey] < b[sortKey] ? return -1 : return 0
+              })
+          );
       
     }else{
       
